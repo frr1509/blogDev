@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.use("/api", routers);
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile("../frontend/build/index.html");
 });
 
