@@ -14,7 +14,7 @@ app.use(express.static("../frontend/build"));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/", routers);
+app.use("/api", routers);
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING).then(() => {
   app.listen(port, () => {
