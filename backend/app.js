@@ -16,6 +16,10 @@ app.use(cookieParser());
 
 app.use("/api", routers);
 
+app.get("*", (req, res) => {
+  res.sendFile("../frontend/build/index.html");
+});
+
 mongoose.connect(process.env.MONGO_CONNECTION_STRING).then(() => {
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
