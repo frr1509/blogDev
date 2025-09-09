@@ -16,8 +16,8 @@ app.use(cookieParser());
 
 app.use("/api", routers);
 
-app.get("/:any*", (req, res) => {
-  res.sendFile("../frontend/build/index.html");
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING).then(() => {
